@@ -9,7 +9,7 @@ module YaKassa
         end
 
         def send
-          HTTParty.get(@url, basic_auth: auth)
+          ::HTTParty.get(@url, basic_auth: auth)
         end
       end
     end

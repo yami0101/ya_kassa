@@ -5,7 +5,7 @@ module YaKassa
         protected
 
         def send
-          HTTParty.post(@url, body: @body, headers: headers, basic_auth: auth)
+          ::HTTParty.post(@url, body: @body, headers: headers, basic_auth: auth)
         end
       end
     end
