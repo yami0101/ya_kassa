@@ -13,7 +13,7 @@ module YaKassa
         end
 
         def is_a_class
-          @params[:class].constantize
+          Utilites::String.constantize(@params[:class])
         end
       end
     end

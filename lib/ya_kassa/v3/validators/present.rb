@@ -5,7 +5,7 @@ module YaKassa
         private
 
         def condition
-          value.present?
+          value && value != ''
         end
 
         def error_msg

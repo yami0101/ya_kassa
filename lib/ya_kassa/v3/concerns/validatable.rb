@@ -62,7 +62,7 @@ module YaKassa
 
         def validator_class(type)
           klass = VALIDATORS[type]
-          "::YaKassa::V3::Validators::#{klass}".constantize
+          Utilites::String.constantize("::YaKassa::V3::Validators::#{klass}")
         end
       end
     end
