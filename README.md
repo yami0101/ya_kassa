@@ -74,7 +74,24 @@ refund_params = {
   payment_id: '2534fac6-000f-5000-a000-105ab7c0ab90'
 }
 YaKassa::V3::RefundRequest.new(idempotence_key, payment_params).create
- => {"id"=>"253505ba-0015-5000-a000-1f19dc0", "status"=>"succeeded", "amount"=>{"value"=>"10.0", "currency"=>"RUB"}, "created_at"=>"2019-10-13T09:44:26.548Z", "payment_id"=>"253503ee-000f-5000-a000-1c5fb4"
+# => {"id"=>"253505ba-0015-5000-a000-1f19dc0", "status"=>"succeeded", "amount"=>{"value"=>"10.0", "currency"=>"RUB"}, "created_at"=>"2019-10-13T09:44:26.548Z", "payment_id"=>"253503ee-000f-5000-a000-1c5fb4"
+```
+
+#### Receipt
+```ruby
+idempotence_key = '123456'
+
+receipt_params = {
+  full_name: 'Ivan Ivanov',
+  email: 'example@exaple.com',
+  phone: '+7 777777',
+  payment_id: "253503ee-000f-5000-a000-1c5fb44eaf40",
+  items: [
+    { description: 'product1', quantity: 1, amount_value: 10.0 }
+  ]
+}
+
+YaKassa::V3::ReceiptRequest.new(idempotence_key, receipt_params).create
 ```
 
 ### Validation

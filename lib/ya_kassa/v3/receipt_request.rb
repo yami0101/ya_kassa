@@ -1,7 +1,7 @@
 module YaKassa
   module V3
     class ReceiptRequest < BaseRequest
-     attributable :customer
+      attributable :customer
       attributable :payment_id
       attributable :type, default: "payment"
       attributable :send, default: "true"
@@ -22,7 +22,6 @@ module YaKassa
       validatable :full_name, :is_a, class: "String"
       validatable :email, :is_a, class: "String"
       validatable :phone, :present
-      validatable :inn, :present
 
       def body
         {
