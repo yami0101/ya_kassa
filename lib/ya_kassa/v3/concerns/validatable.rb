@@ -11,13 +11,19 @@ module YaKassa
 
         module ClassMethods
           def validatable(name, type, params = {})
-            validators = begin
+            validators = get_validators
+            validators << { name: name, type: type, params: params }
+            class_variable_set(:@@validators, validators)
+          end
+
+          private
+
+          def get_validators
+            begin
               class_variable_get(:@@validators)
             rescue NameError
               []
             end
-            validators << { name: name, type: type, params: params }
-            class_variable_set(:@@validators, validators)
           end
         end
 
@@ -51,7 +57,11 @@ module YaKassa
         end
 
         def validators
-          self.class.class_variable_get(:@@validators)
+          begin
+            self.class.class_variable_get(:@@validators)
+          rescue NameError
+            []
+          end
         end
 
         def attr_value(attr_name)
