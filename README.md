@@ -64,7 +64,7 @@ YaKassa::V3::PaymentCaptureRequest.new(idempotence_key, capture_params).create
 ```
 
 #### Cancel
-```
+```ruby
 cancel_params = {
   payment_id: "253503ee-000f-5000-a000-1c5fb44eaf40",
 }
