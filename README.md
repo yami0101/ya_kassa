@@ -33,7 +33,7 @@ default_values:
 - amount_currency - "RUB"
 - confirmation_type - "redirect"
 but you can redefine it
-```
+```ruby
 idempotence_key = '123456'
 
 payment_params = {
