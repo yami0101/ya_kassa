@@ -1,8 +1,6 @@
 # YaKassa
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ya_kassa`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Обёртка для работы с API V3 сервиса ЯндексКасса
 
 ## Installation
 
@@ -19,6 +17,15 @@ And then execute:
 Or install it yourself as:
 
     $ gem install ya_kassa
+
+create initializer file like this
+```
+# /config/initializers/ya_kassa.rb
+
+YaKassa::V3::Settings.shop_id = Rails.application.credentials[:ya_kassa][:shop_id]
+YaKassa::V3::Settings.secret_key = Rails.application.credentials[:ya_kassa][:secret_key]
+
+```
 
 ## Usage
 
