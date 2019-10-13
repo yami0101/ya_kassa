@@ -32,7 +32,7 @@ YaKassa::V3::Settings.secret_key = Rails.application.credentials[:ya_kassa][:sec
 default_values:
 - amount_currency - "RUB"
 - confirmation_type - "redirect"
-but you can redefine it
+- capture - `true`
 ```ruby
 idempotence_key = '123456'
 
@@ -56,9 +56,11 @@ YaKassa::V3::PaymentStatusRequest.new('2534fac6-000f-5000-a000-105ab7c0ab90').cr
 ```ruby
 idempotence_key = '123456'
 
-payment_params = {
-  amount_value: 10.0
+capture_params = {
+  amount_value: 10.0,
+  payment_id: '2534fac6-000f-5000-a000-105ab7c0ab90'
 }
+YaKassa::V3::PaymentCaptureRequest.new(idempotence_key, capture_params).create
 ```
 
 ### Validation
