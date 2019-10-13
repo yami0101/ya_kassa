@@ -32,6 +32,10 @@ YaKassa::V3::Settings.secret_key = Rails.application.credentials[:ya_kassa][:sec
 ```
 idempotence_key = '123456'
 
+# default_values
+# amount_currency - "RUB"
+# confirmation_type - "redirect"
+# but you can redefine it
 payment_params = {
   amount_value: 10.0,
   payment_id: '123',
@@ -46,6 +50,15 @@ YaKassa::V3::PaymentRequest.new(idempotence_key, payment_params).create
 ```
 YaKassa::V3::PaymentStatusRequest.new('2534fac6-000f-5000-a000-105ab7c0ab90').create
 # => {"id"=>"2534fac6-000f-5000-a000-105ab7c0ab90", "status"=>"pending", "paid"=>false, "amount"=>{"value"=>"10.00", "currency"=>"RUB"}, "confirmation"=>{"type"=>"redirect", "confirmation_url"=>"https://money.yandex.ru/api-pages/v2/payment-confirm/epl?orderId=2534fac6-000f..."}, "created_at"=>"2019-10-13T08:57:42.987Z", "metadata"=>{}, "recipient"=>{"account_id"=>"123123", "gateway_id"=>"123123"}, "refundable"=>false, "test"=>true}
+```
+
+#### Payment capture
+```
+idempotence_key = '123456'
+
+payment_params = {
+  amount_value: 10.0
+}
 ```
 
 ### Validation
