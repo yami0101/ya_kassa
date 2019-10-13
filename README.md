@@ -29,13 +29,13 @@ YaKassa::V3::Settings.secret_key = Rails.application.credentials[:ya_kassa][:sec
 
 ## Example of Usage
 #### Payment
+default_values:
+- amount_currency - "RUB"
+- confirmation_type - "redirect"
+but you can redefine it
 ```
 idempotence_key = '123456'
 
-# default_values
-# amount_currency - "RUB"
-# confirmation_type - "redirect"
-# but you can redefine it
 payment_params = {
   amount_value: 10.0,
   payment_id: '123',
