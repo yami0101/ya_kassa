@@ -28,10 +28,6 @@ module YaKassa
       def url
         router.refund_url
       end
-
-      def class_validator
-        'RefundRequest'
-      end
     end
   end
 end

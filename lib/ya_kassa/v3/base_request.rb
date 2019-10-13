@@ -48,10 +48,6 @@ module YaKassa
       def router
         Router.new(payment_id: @params[:payment_id])
       end
-
-      def class_validator
-        'Base'
-      end
     end
   end
 end

@@ -43,11 +43,11 @@ module YaKassa
         private
 
         def shop_id
-          Rails.application.credentials[:yandex_kassa][:shop_id]
+          ::YaKassa::V3::Settings.shop_id
         end
 
         def secret_key
-          Rails.application.credentials[:yandex_kassa][:secret_key]
+          ::YaKassa::V3::Settings.secret_key
         end
       end
     end

@@ -40,10 +40,6 @@ module YaKassa
       def url
         router.payment_url
       end
-
-      def class_validator
-        'PaymentRequest'
-      end
     end
   end
 end

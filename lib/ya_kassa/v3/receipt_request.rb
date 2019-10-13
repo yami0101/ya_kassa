@@ -83,10 +83,6 @@ module YaKassa
       def url
         router.receipt_url
       end
-
-      def class_validator
-        'ReceiptRequest'
-      end
     end
   end
 end

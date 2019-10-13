@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "http://github.com/niksan/ya_kassa"
   spec.license       = "MIT"
 
-  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["homepage_uri"] = "https://github.com/niksan/ya_kassa"
   spec.metadata["source_code_uri"] = "http://github.com/niksan/ya_kassa"
 
   # Specify which files should be added to the gem when it is released.
@@ -24,8 +24,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_runtime_dependency "httparty", "~> 0.17.1"
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "httparty", "~> 0.17.1"
 end

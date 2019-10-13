@@ -11,14 +11,17 @@ module YaKassa
 
         module ClassMethods
           def validatable(name, type, params = {})
-            validators = self.class_variable_get(:@@validators)
+            validators = begin
+              class_variable_get(:@@validators)
+            rescue NameError
+              []
+            end
             validators << { name: name, type: type, params: params }
             class_variable_set(:@@validators, validators)
           end
         end
 
         def self.included(klass)
-          class_variable_set(:@@validators, [])
           klass.extend(ClassMethods)
         end
 
