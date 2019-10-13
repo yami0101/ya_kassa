@@ -5,7 +5,11 @@ module YaKassa
         protected
 
         def response_body(response)
-          JSON.parse(response.body)
+          begin
+            JSON.parse(response.body)
+          rescue JSON::ParserError
+            response.body
+          end
         end
 
         def send
