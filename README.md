@@ -59,6 +59,7 @@ capture_params = {
   amount_value: 10.0,
   payment_id: '2534fac6-000f-5000-a000-105ab7c0ab90'
 }
+
 YaKassa::V3::PaymentCaptureRequest.new(idempotence_key, capture_params).create
 # => {"id"=>"253503ee-000f-5000-a000-1c5fb44eaf40", "status"=>"succeeded", "paid"=>true, "amount"=>{"value"=>"10.00", "currency"=>"RUB"}, "authorization_details"=>{"rrn"=>"123123272641", "auth_code"=>"21231"}, "captured_at"=>"2019-10-13T09:38:14.133Z", "created_at"=>"2019-10-13T09:37:58.019Z", "metadata"=>{}, "payment_method"=>{"type"=>"bank_card", "id"=>"253503ee-000f-5000-a000-1c5fb44eaf40", "saved"=>false, "card"=>{"first6"=>"555555", "last4"=>"4444", "expiry_month"=>"01", "expiry_year"=>"2022", "card_type"=>"MasterCard"}, "title"=>"Bank card *4444"}, "recipient"=>{"account_id"=>"45358", "gateway_id"=>"16234542"}, "refundable"=>true, "refunded_amount"=>{"value"=>"0.00", "currency"=>"RUB"}, "test"=>true}
 ```
@@ -78,6 +79,7 @@ refund_params = {
   amount_value: 10.0,
   payment_id: '2534fac6-000f-5000-a000-105ab7c0ab90'
 }
+
 YaKassa::V3::RefundRequest.new(idempotence_key, payment_params).create
 # => {"id"=>"253505ba-0015-5000-a000-1f19dc0", "status"=>"succeeded", "amount"=>{"value"=>"10.0", "currency"=>"RUB"}, "created_at"=>"2019-10-13T09:44:26.548Z", "payment_id"=>"253503ee-000f-5000-a000-1c5fb4"
 ```
