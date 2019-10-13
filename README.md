@@ -19,7 +19,7 @@ Or install it yourself as:
     $ gem install ya_kassa
 
 Create initializer file like this
-```
+```ruby
 # /config/initializers/ya_kassa.rb
 
 YaKassa::V3::Settings.shop_id = Rails.application.credentials[:ya_kassa][:shop_id]
@@ -71,7 +71,7 @@ payment_params = {
 }
 
 YaKassa::V3::PaymentRequest.new(idempotence_key, payment_params).create
-#=> {:amount_value=>["Should be Float"]}
+# => {:amount_value=>["Should be Float"]}
 ```
 
 ## Development
