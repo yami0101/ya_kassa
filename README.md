@@ -32,7 +32,6 @@ YaKassa::V3::Settings.secret_key = Rails.application.credentials[:ya_kassa][:sec
 default_values:
 - amount_currency - "RUB"
 - confirmation_type - "redirect"
-<br>
 but you can redefine it
 ```
 idempotence_key = '123456'
