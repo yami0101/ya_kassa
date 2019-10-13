@@ -34,7 +34,7 @@ default_values:
 - confirmation_type - "redirect"
 <br>
 but you can redefine it
-```ruby
+```
 idempotence_key = '123456'
 
 payment_params = {
